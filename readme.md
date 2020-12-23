@@ -2,4 +2,5 @@ inject [![Build Status](https://secure.travis-ci.org/facebookgo/inject.png)](htt
 ======
 
 Documentation: https://godoc.org/github.com/facebookgo/inject
+
 It is allowed to provide nil object.
