@@ -259,16 +259,17 @@ StructLoop:
 			continue
 		}
 
-		// Named injects must have been explicitly provided.
+		// It is allowed to provide nil object
 		if tag.Name != "" {
 			existing := g.named[tag.Name]
 			if existing == nil {
-				return fmt.Errorf(
-					"did not find object named %s required by field %s in type %s",
-					tag.Name,
-					o.reflectType.Elem().Field(i).Name,
-					o.reflectType,
-				)
+				// return fmt.Errorf(
+				// 	"did not find object named %s required by field %s in type %s",
+				// 	tag.Name,
+				// 	o.reflectType.Elem().Field(i).Name,
+				// 	o.reflectType,
+				// )
+				continue
 			}
 
 			if !existing.reflectType.AssignableTo(fieldType) {
